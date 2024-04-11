@@ -10,10 +10,9 @@ namespace Food_Book
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hi there. Welcome to Dig-in");
+            Console.WriteLine("Welcome to Food Book");
 
-            Console.WriteLine("Type [W] to write a new recipe or [L] to list the current available recepts");
-            string input1 = Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
