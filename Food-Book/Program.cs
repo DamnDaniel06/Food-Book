@@ -14,20 +14,30 @@ namespace Food_Book
             Display display = new Display();
             Add add = new Add();
 
-            Recipe recipe=add.AddRecipe();
+            Recipe recipe = new Recipe();
+            recipe = add.AddRecipe();
             display.DisplayRecipe(recipe, 1);
 
             Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
             string input = Console.ReadLine();
-            
-            while(input =="R" || input == "r")
-            {
-                recipe = add.AddRecipe();
-                display.DisplayRecipe(recipe, 1);
 
-                Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
+            if (input == "R" || input == "r")
+            {
+                Console.WriteLine("Are you sure? type Y for yes");
+                input = Console.ReadLine();
+
+                do
+                {
+                    recipe = add.AddRecipe();
+                    display.DisplayRecipe(recipe, 1);
+
+                    Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
+                    input = Console.ReadLine();
+                }
+                while (input == "Y" || input == "y");
             }
-            if(input == "S" || input == "s")
+
+            do
             {
                 Console.WriteLine("To change the scale of the quantity used to :\n" +
                     "\t0,5(Half)\ttype 0\n" +
@@ -35,7 +45,7 @@ namespace Food_Book
                     "\t3(triple)\ttype 3\n" +
                     "\tor type 1 to reset to the original scale");
                 string input2 = Console.ReadLine();
-                if(input2 == "0")
+                if (input2 == "0")
                 {
                     display.DisplayRecipe(recipe, 0.5);
                 }
@@ -52,6 +62,8 @@ namespace Food_Book
                     display.DisplayRecipe(recipe, 1);
                 }
             }
+            while (input == "S" || input == "s");
+            
             Console.ReadKey();
         }
 
