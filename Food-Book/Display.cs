@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Food_Book
 {
-    public class Display
+    internal class Display
     {
         public void DisplayRecipe(Recipe recipe, int x)
         {
@@ -34,7 +34,7 @@ namespace Food_Book
                     $"--");
             }
         }
-        static void DisplayRecipe(Recipe recipe, double x)
+        public void DisplayRecipe(Recipe recipe, double x)
         {
             Console.WriteLine($"**************************************************\n" +
                 $"Recipe name: {recipe.Name}\n" +
