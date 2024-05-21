@@ -14,56 +14,11 @@ namespace Food_Book
             Display display = new Display();
             Add add = new Add();
 
-            Recipe recipe = new Recipe();
-            recipe = add.AddRecipe();
+            Recipe recipe = add.AddRecipe();
             display.DisplayRecipe(recipe, 1);
 
-            Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
-            string input = Console.ReadLine();
-
-            if (input == "R" || input == "r")
-            {
-                Console.WriteLine("Are you sure? type Y for yes");
-                input = Console.ReadLine();
-
-                do
-                {
-                    recipe = add.AddRecipe();
-                    display.DisplayRecipe(recipe, 1);
-
-                    Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
-                    input = Console.ReadLine();
-                }
-                while (input == "Y" || input == "y");
-            }
-
-            do
-            {
-                Console.WriteLine("To change the scale of the quantity used to :\n" +
-                    "\t0,5(Half)\ttype 0\n" +
-                    "\t2(double)\ttype 2\n" +
-                    "\t3(triple)\ttype 3\n" +
-                    "\tor type 1 to reset to the original scale");
-                string input2 = Console.ReadLine();
-                if (input2 == "0")
-                {
-                    display.DisplayRecipe(recipe, 0.5);
-                }
-                else if (input2 == "2")
-                {
-                    display.DisplayRecipe(recipe, 2);
-                }
-                else if (input2 == "3")
-                {
-                    display.DisplayRecipe(recipe, 3);
-                }
-                else
-                {
-                    display.DisplayRecipe(recipe, 1);
-                }
-            }
-            while (input == "S" || input == "s");
-            
+            Decisions decisions = new Decisions();
+            decisions.reDecided();
             Console.ReadKey();
         }
 
