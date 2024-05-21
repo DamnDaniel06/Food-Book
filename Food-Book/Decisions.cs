@@ -20,7 +20,7 @@ namespace Food_Book
             Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
             string input = Console.ReadLine();
 
-            while (counter < 2 && (input!="r" || input != "R" || input == "S" || input == "s"))
+            while (counter < 2 && (input!="r" || input != "R" || input != "S" || input != "s"))
             {
                 Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
                 input = Console.ReadLine();

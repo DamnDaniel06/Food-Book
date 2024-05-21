@@ -33,6 +33,7 @@ namespace Food_Book
                     $"{step.instruction}\n" +
                     $"--");
             }
+            Decisions.Decision(recipe);
         }
         public static void DisplayRecipe(Recipe recipe, double x)
         {
@@ -59,6 +60,7 @@ namespace Food_Book
                     $"{step.instruction}\n" +
                     $"--");
             }
+            Decisions.Decision(recipe);
         }
     }
 }

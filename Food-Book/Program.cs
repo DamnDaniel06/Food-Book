@@ -16,7 +16,6 @@ namespace Food_Book
             Recipe recipe = add.AddRecipe();
             Display.DisplayRecipe(recipe, 1);
 
-            Decisions.Decision(recipe);
             Console.ReadKey();
         }
 
