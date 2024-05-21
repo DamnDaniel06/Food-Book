@@ -8,18 +8,32 @@ namespace Food_Book
 {
     internal class Decisions
     {
-        Display display = new Display();
-        Add add = new Add();
-        Recipe recipe = new Recipe();
+        
 
-        public void reDecided()
+        public static void Decision(Recipe recipe)
         {
+            Display display = new Display();
+            Add add = new Add();
+            
+            int counter = 0;
+            
             Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
             string input = Console.ReadLine();
 
+            while (counter < 2 && (input!="r" || input != "R" || input == "S" || input == "s"))
+            {
+                Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
+                input = Console.ReadLine();
+                counter++;
+            }
+            if (counter == 3)
+            {
+                //ending
+                Console.WriteLine("Thank you and goodbye");
+            }
             if (input == "R" || input == "r")
             {
-                Confirmation(input);
+                Confirmation(input, recipe);
             }
             if(input =="s" || input == "S")
             {
@@ -31,34 +45,36 @@ namespace Food_Book
                 string input2 = Console.ReadLine();
                 if (input2 == "0")
                 {
-                    display.DisplayRecipe(recipe, 0.5);
+                    Display.DisplayRecipe(recipe, 0.5);
                 }
                 else if (input2 == "2")
                 {
-                    display.DisplayRecipe(recipe, 2);
+                    Display.DisplayRecipe(recipe, 2);
                 }
                 else if (input2 == "3")
                 {
-                    display.DisplayRecipe(recipe, 3);
+                    Display.DisplayRecipe(recipe, 3);
                 }
                 else
                 {
-                    display.DisplayRecipe(recipe, 1);
+                    Display.DisplayRecipe(recipe, 1);
                 }
             }
         }
-        public void Confirmation(string input)
+        public static void Confirmation(string input, Recipe recipe)
         {
+            Add add = new Add();
+
             Console.WriteLine("Are you sure? type Y for yes");
             input = Console.ReadLine();
             if (input == "Y" || input == "y")
             {
                 recipe = add.AddRecipe();
-                display.DisplayRecipe(recipe, 1);
+                Display.DisplayRecipe(recipe, 1);
             }
             else
             {
-                reDecided();
+                Decision(recipe);
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Food_Book
 {
     internal class Display
     {
-        public void DisplayRecipe(Recipe recipe, int x)
+        public static void DisplayRecipe(Recipe recipe, int x)
         {
             Console.WriteLine($"**************************************************\n" +
                 $"Recipe name: {recipe.Name}\n" +
@@ -34,7 +34,7 @@ namespace Food_Book
                     $"--");
             }
         }
-        public void DisplayRecipe(Recipe recipe, double x)
+        public static void DisplayRecipe(Recipe recipe, double x)
         {
             Console.WriteLine($"**************************************************\n" +
                 $"Recipe name: {recipe.Name}\n" +

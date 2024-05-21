@@ -11,14 +11,12 @@ namespace Food_Book
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Food Book");
-            Display display = new Display();
             Add add = new Add();
 
             Recipe recipe = add.AddRecipe();
-            display.DisplayRecipe(recipe, 1);
+            Display.DisplayRecipe(recipe, 1);
 
-            Decisions decisions = new Decisions();
-            decisions.reDecided();
+            Decisions.Decision(recipe);
             Console.ReadKey();
         }
 
