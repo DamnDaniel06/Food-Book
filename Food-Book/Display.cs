@@ -8,6 +8,12 @@ namespace Food_Book
 {
     internal class Display
     {
+        /// <summary>
+        /// These are Methods to display the recipe information that the user entered
+        /// 
+        /// </summary>
+        /// <param name="recipe"></param>
+        /// <param name="x"></param>
         public static void DisplayRecipe(Recipe recipe, int x)
         {
             Console.WriteLine($"**************************************************\n" +
@@ -61,6 +67,11 @@ namespace Food_Book
                     $"--");
             }
             Decisions.Decision(recipe);
+        }
+
+        public static void DisplayEnd()
+        {
+            Console.WriteLine("...........GOODBYE...........");
         }
     }
 }

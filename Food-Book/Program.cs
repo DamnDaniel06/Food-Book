@@ -12,9 +12,17 @@ namespace Food_Book
         {
             Console.WriteLine("Welcome to Food Book");
             Add add = new Add();
-
+            bool end = false;
+            
             Recipe recipe = add.AddRecipe();
-            Display.DisplayRecipe(recipe, 1);
+            while (end == false)
+            {
+                Display.DisplayRecipe(recipe, 1);
+            }
+            if(end == true)
+            {
+                Display.DisplayEnd();
+            }
 
             Console.ReadKey();
         }
