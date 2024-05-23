@@ -16,18 +16,43 @@ namespace Food_Book
             if (string.IsNullOrEmpty(input))
             {
                 isValid = false;
-                throw new ArgumentNullException(nameof(input),"String is null");
+                throw new ArgumentNullException(nameof(input),"String is null. please try again");
             }
             else
             {
                 try
                 {
-                    isValid = true;
+                    foreach (char c in input)
+                    {
+                        if (!char.IsLetter(c))
+                            return false;
+                    }
+                    return true;
                 }
                 catch (FormatException fx)
                 {
                     Console.WriteLine($"...An Error has occured: {fx.Message}");
                     isValid = false;
+                }
+            }
+            return isValid;
+        }
+        static bool IntChecker(string input)
+        {
+            bool isValid = false;
+
+            if (string.IsNullOrEmpty(input))
+            {
+                isValid = false; 
+                throw new ArgumentNullException(nameof(input), "Input is null. Please try again");
+            }
+            else
+            {
+                int n;
+                isValid = int.TryParse("123", out n);
+                if(isValid == false)
+                {
+                    throw new ArgumentNullException(nameof(input), "Input is not numeric. Please try again");
                 }
             }
             return isValid;

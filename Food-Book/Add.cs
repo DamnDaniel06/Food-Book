@@ -8,11 +8,17 @@ namespace Food_Book
 {
     internal class Add
     {
+        /// <summary>
+        /// The purpose of this class is to add Recipes 
+        /// </summary>
+        /// <returns></returns>
         public Recipe AddRecipe()
         {
             Console.WriteLine("-----");
             Recipe recipe = new Recipe();
 
+            bool isValid = false;
+            int counter = 0;
             Console.WriteLine("Please enter the Name of Recipe");
             string name = Console.ReadLine();
             recipe.Name = name;
