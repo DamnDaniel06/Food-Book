@@ -10,7 +10,7 @@ namespace Food_Book
 {
     internal class InputChecker
     {
-        static bool StringChecker(string input)
+        public static bool StringChecker(string input)
         {
             bool isValid = true;
             if (string.IsNullOrEmpty(input))
@@ -37,7 +37,7 @@ namespace Food_Book
             }
             return isValid;
         }
-        static bool IntChecker(string input)
+        public static bool IntChecker(string input)
         {
             bool isValid = false;
 
