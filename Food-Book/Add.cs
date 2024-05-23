@@ -20,8 +20,6 @@ namespace Food_Book
 
             while (isWorking == true)
             {
-                
-
                 bool isValid = true;
                 int counter = 0;
 
@@ -44,10 +42,7 @@ namespace Food_Book
                     counter = 0;
                     recipe.Name = name;
                 }
-                
-
-
-
+                //-------------------------------------------------------------------------
                 Console.WriteLine("Please enter the number of ingredients");
                 string Ingrd = Console.ReadLine();
                 isValid = InputChecker.IntChecker(Ingrd);
@@ -64,7 +59,7 @@ namespace Food_Book
                 }
                 counter = 0;
                 int numIngrd = System.Convert.ToInt32(Ingrd);
-
+                //-------------------------------------------------------------------------
                 Console.WriteLine("\n--------ingredients--------");
                 recipe.ingediants = new List<Ingredient>();
                 for (int i = 0; i < numIngrd; i++)
@@ -73,7 +68,7 @@ namespace Food_Book
                     recipe.ingediants.Add(ingred);
                 }
 
-
+                //-------------------------------------------------------------------------
                 Console.WriteLine("How many steps does this recipe require?");
                 string steps = Console.ReadLine();
                 isValid = InputChecker.IntChecker(steps);
@@ -90,7 +85,7 @@ namespace Food_Book
                 }
                 counter = 0;
                 int numSteps = System.Convert.ToInt32(steps);
-
+                //-------------------------------------------------------------------------
                 Console.WriteLine("");
                 Console.WriteLine("\n--------Steps--------");
                 recipe.steps = new List<Step>();
@@ -103,7 +98,9 @@ namespace Food_Book
             return recipe;
 
         }
-
+        //************************************************************************
+        //-----
+        //************************************************************************
         static Ingredient AddIngredient(int x, ref bool isWorking)
         {
             int counter = 0;
@@ -130,7 +127,7 @@ namespace Food_Book
                 }
                 counter = 0;
                 ingredient.name = name;
-
+                //-------------------------------------------------------------------------
                 Console.WriteLine("What is the Unit of Measurement?");
                 string uom = Console.ReadLine();
                 isValid = InputChecker.StringChecker(uom);
@@ -148,7 +145,7 @@ namespace Food_Book
                 }
                 counter = 0;
                 ingredient.UOM = uom;
-
+                //-------------------------------------------------------------------------
                 Console.WriteLine("What is the quantity used");
                 string qt = Console.ReadLine();
                 isValid = InputChecker.IntChecker(qt);
@@ -171,7 +168,11 @@ namespace Food_Book
             }
             return ingredient;
         }
-
+        //************************************************************************
+        //-------------------------------ADD CLASS--------------------------------//
+        //------------------------------------
+        //This method takes 
+        //************************************************************************
         static Step AddSteps(int j, ref bool isWorking)
         {
             int counter = 0;
