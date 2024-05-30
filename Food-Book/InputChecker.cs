@@ -44,15 +44,15 @@ namespace Food_Book
             if (string.IsNullOrEmpty(input))
             {
                 isValid = false; 
-                throw new ArgumentNullException(nameof(input), "Input is null. Please try again");
+                //throw new ArgumentNullException(nameof(input), "Input is null. Please try again");
             }
             else
             {
                 int n;
-                isValid = int.TryParse("123", out n);
+                isValid = int.TryParse(input, out n);
                 if(isValid == false)
                 {
-                    throw new ArgumentNullException(nameof(input), "Input is not numeric. Please try again");
+                    //throw new ArgumentNullException(nameof(input), "Input is not numeric. Please try again");
                 }
             }
             return isValid;

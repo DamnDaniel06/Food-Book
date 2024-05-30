@@ -11,5 +11,15 @@ namespace Food_Book
         public string Name { get; set; }
         public List<Ingredient> ingediants { get; set; }
         public List<Step> steps { get; set; }
+
+        public Recipe()
+        {
+            
+        }
+
+        public static void Clear()
+        {
+            
+        }
     }
 }

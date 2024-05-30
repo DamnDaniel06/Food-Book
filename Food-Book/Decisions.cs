@@ -69,6 +69,8 @@ namespace Food_Book
             input = Console.ReadLine();
             if (input == "Y" || input == "y")
             {
+                recipe = null;
+                Console.Clear();
                 recipe = add.AddRecipe();
                 Display.DisplayRecipe(recipe, 1);
             }
