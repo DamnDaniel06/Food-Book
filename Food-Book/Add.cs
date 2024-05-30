@@ -12,7 +12,7 @@ namespace Food_Book
         /// The purpose of this class is to add Recipes 
         /// </summary>
         /// <returns></returns>
-        public Recipe AddRecipe()
+        public static Recipe AddRecipe()
         {
             Console.WriteLine("-----");
             Recipe recipe = new Recipe();
@@ -208,7 +208,7 @@ namespace Food_Book
         //-------------------------------------------------------
         //These are overloaded methods of the previous classes. Are used in the Display class
         //---------------------------------------------------------
-        public Recipe AddRecipe(ref bool isWorking)
+        public static Recipe AddRecipe(ref bool isWorking)
         {
             Console.WriteLine("-----");
             Recipe recipe = new Recipe();

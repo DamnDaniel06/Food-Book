@@ -63,7 +63,6 @@ namespace Food_Book
         }
         public static void Confirmation(string input, Recipe recipe)
         {
-            Add add = new Add();
 
             Console.WriteLine("Are you sure? type Y for yes");
             input = Console.ReadLine();
@@ -71,7 +70,7 @@ namespace Food_Book
             {
                 recipe = null;
                 Console.Clear();
-                recipe = add.AddRecipe();
+                recipe = Add.AddRecipe();
                 Display.DisplayRecipe(recipe, 1);
             }
             else

@@ -11,18 +11,44 @@ namespace Food_Book
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Food Book");
-            Add add = new Add();
-            bool isWorking = true;
+
+            Console.WriteLine("Type [W] to write a new recipe or [L] to list the current available recepts");
+            string input1 = Console.ReadLine();
+
+            CookBook book = new CookBook();
+            book.recipes = new List<Recipe>();
+
             
-            Recipe recipe = add.AddRecipe(ref isWorking);
-            while (isWorking == true)
+
+            if (input1 == "w" || input1 == "W")
             {
-                Display.DisplayRecipe(recipe, 1);
+                bool isWorking = true;
+                string error = "";
+                
+
+                while (isWorking == true)
+                {
+                    Recipe recipe = Add.AddRecipe(ref isWorking);
+                    book.recipes.Add(recipe);
+                    //Convering the Book to Json
+
+                    Display.DisplayRecipe(recipe, 1);
+                    //Decisions.Decision(recipe);
+                }
+                if (isWorking == false)
+                {
+                    Display.DisplayEnd();
+                }
             }
-            if(isWorking == false)
+            else if (input1 == "L" || input1 == "l")
             {
-                Display.DisplayEnd();
+                //NewDisplay();
             }
+            else
+            {
+                input1 = null;
+            }
+
 
             Console.ReadKey();
         }
