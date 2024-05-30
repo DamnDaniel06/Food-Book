@@ -18,6 +18,7 @@ namespace Food_Book
         {
             Console.WriteLine($"**************************************************\n" +
                 $"Recipe name: {recipe.Name}\n" +
+                $"Total calories:           {recipe.TotalCalories}"+
                 $"Number of Ingredients:    {recipe.ingediants.Count}\n" +
                 $"Number of Steps:          {recipe.steps.Count}\n" +
                 "\t\tINGREDIENTS\t\t\n" +
@@ -29,6 +30,7 @@ namespace Food_Book
                     $"Name:                 {ing.name}\n" +
                     $"Unit of Measurement:  {ing.UOM}\n" +
                     $"Quantity:             {ing.Quantity * x}\n" +
+                    $"Calories:             {ing.Calories}"+
                     $"----");
             }
             Console.WriteLine("\t\tSTEPS\t\t\n" +
@@ -45,6 +47,7 @@ namespace Food_Book
         {
             Console.WriteLine($"**************************************************\n" +
                 $"Recipe name: {recipe.Name}\n" +
+                $"Total calories:           {recipe.TotalCalories}" +
                 $"Number of Ingredients:    {recipe.ingediants.Count}\n" +
                 $"Number of Steps:          {recipe.steps.Count}\n" +
                 "       INGREDIENTS     \n" +
@@ -56,6 +59,7 @@ namespace Food_Book
                     $"Name:                 {ing.name}\n" +
                     $"Unit of Measurement:  {ing.UOM}\n" +
                     $"Quantity:             {ing.Quantity * x}\n" +
+                    $"Calories:             {ing.Calories}" +
                     $"----");
             }
             Console.WriteLine("     STEPS   \n" +
