@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
+    <Compile Include="Convert.cs" />
     <Compile Include="CookBook.cs" />
     <Compile Include="Decisions.cs" />
     <Compile Include="Display.cs" />

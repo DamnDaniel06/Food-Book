@@ -42,7 +42,7 @@ namespace Food_Book
             }
             else if (input1 == "L" || input1 == "l")
             {
-                //NewDisplay();
+                NewDisplay();
             }
             else
             {
@@ -52,6 +52,33 @@ namespace Food_Book
 
             Console.ReadKey();
         }
+        public static void NewDisplay()
+        {
+            CookBook newBook = new CookBook();
+            //newBook = .... >object from convert class
+
+            List<Recipe> recipes = new List<Recipe>();
+            recipes = newBook.recipes;
+            recipes.Sort();
+            int num = recipes.Count;
+            int i = 1;
+            foreach (var recps in recipes)
+            {
+                Console.WriteLine($"{i} {recps.Name} ( {recps.TotalCalories} calories)");
+                i++;
+
+            }
+            string input1 = Console.ReadLine();
+            while (input1 != null && Int32.TryParse(input1, out int t))
+            {
+                while (t > 0 && t <= num)
+                {
+                    //Display(recipes, t);
+                }
+            }
+
+        }
 
     }
+    
 }

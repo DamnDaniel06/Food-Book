@@ -163,6 +163,40 @@ namespace Food_Book
                 counter = 0;
                 int Qnt = System.Convert.ToInt32(qt);
                 ingredient.Quantity = Qnt;
+                //-------------------------------------------------------------------------
+                Console.WriteLine("How many calories does it have?");
+                int Cal = System.Convert.ToInt32(Console.ReadLine());
+                ingredient.Quantity = Cal;
+
+                Console.WriteLine("Which food group does it belong to? Type\n" +
+                    "\t1 for Strach\n" +
+                    "\t2 for Fruits\n" +
+                    "\t3 for Vegetables\n" +
+                    "\t4 for Grains\n" +
+                    "\t5 for Proteins\n" +
+                    "\t6 for Fats and Oils ");
+                int foodtype = System.Convert.ToInt32(Console.ReadLine());
+                switch (foodtype)
+                {
+                    case 1:
+                        ingredient.Food_Group = Ingredient.FoodType.Starches;
+                        break;
+                    case 2:
+                        ingredient.Food_Group = Ingredient.FoodType.Fruits;
+                        break;
+                    case 3:
+                        ingredient.Food_Group = Ingredient.FoodType.Vegetables;
+                        break;
+                    case 4:
+                        ingredient.Food_Group = Ingredient.FoodType.Grains;
+                        break;
+                    case 5:
+                        ingredient.Food_Group = Ingredient.FoodType.Protein;
+                        break;
+                    case 6:
+                        ingredient.Food_Group = Ingredient.FoodType.FatsAndOils;
+                        break;
+                }
                 Console.WriteLine("----");
             }
         Afterloop:
@@ -257,6 +291,7 @@ namespace Food_Book
                 }
                 counter = 0;
                 int numIngrd = System.Convert.ToInt32(Ingrd);
+                
                 //-------------------------------------------------------------------------
                 Console.WriteLine("\n--------ingredients--------");
                 recipe.ingediants = new List<Ingredient>();
