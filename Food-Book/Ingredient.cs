@@ -12,16 +12,17 @@ namespace Food_Book
         public int Quantity { get; set; }
         public string UOM { get; set; }
         public int Calories { get; set; }
-        public FoodType Food_Group { get; set; }
-        public enum FoodType
-        {
-            Starches,
-            Fruits,
-            Vegetables,
-            Grains,
-            Dairy,
-            Protein,
-            FatsAndOils
-        }
+        public string Food_Group { get; set; }
+        //public enum FoodType
+        //{
+        //    Starches,
+        //    Fruits,
+        //    Vegetables,
+        //    Grains,
+        //    Dairy,
+        //    Protein,
+        //    FatsAndOils
+        //}
+
     }
 }

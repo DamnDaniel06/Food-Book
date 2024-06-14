@@ -57,6 +57,18 @@ namespace Food_Book
             }
             return isValid;
         }
-        
+
+        public static bool IntChecker(int input)
+        {
+            bool isValid = false;
+
+            if (input>0 && input<500)
+            {
+                isValid = true;
+                //throw new ArgumentNullException(nameof(input), "Input is null. Please try again");
+            }
+            return isValid;
+        }
+
     }
 }
