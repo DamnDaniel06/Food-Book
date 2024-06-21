@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,54 +13,83 @@ namespace Food_Book
 
         public static void Decision(Recipe recipe)
         {
-            Display display = new Display();
-            Add add = new Add();
-            
-            int counter = 0;
-            
-            Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
-            string input = Console.ReadLine();
+            //Display display = new Display();
+            //Add add = new Add();
 
-            while (counter < 2 && (input!="r" || input != "R" || input != "S" || input != "s"))
+            //int counter = 0;
+
+            //Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
+            //string input = Console.ReadLine();
+
+            //while (counter < 2 && (input!="r" || input != "R" || input != "S" || input != "s"))
+            //{
+            //    Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
+            //    input = Console.ReadLine();
+            //    counter++;
+            //}
+            //if (counter == 3)
+            //{
+            //    //ending
+            //    Console.WriteLine("Thank you and goodbye");
+            //}
+            //if (input == "R" || input == "r")
+            //{
+            //    Confirmation(input, recipe);
+            //}
+            //if(input =="s" || input == "S")
+            //{
+            //    Console.WriteLine("To change the scale of the quantity used to :\n" +
+            //       "\t0,5(Half)\ttype 0\n" +
+            //       "\t2(double)\ttype 2\n" +
+            //       "\t3(triple)\ttype 3\n" +
+            //       "\tor type 1 to reset to the original scale");
+            //    string input2 = Console.ReadLine();
+            //    if (input2 == "0")
+            //    {
+            //        Display.DisplayRecipe(recipe, 0.5);
+            //    }
+            //    else if (input2 == "2")
+            //    {
+            //        Display.DisplayRecipe(recipe, 2);
+            //    }
+            //    else if (input2 == "3")
+            //    {
+            //        Display.DisplayRecipe(recipe, 3);
+            //    }
+            //    else
+            //    {
+            //        Display.DisplayRecipe(recipe, 1);
+            //    }
+            //}
+
+            // Ask the user what they would like to do with this information
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("What would you like to do?")
+                    .PageSize(10)
+                    .AddChoices(new[] { "ReScale","Remove current recipe", "Add a new recipe", "Quit program" }));
+
+            if(choice != "Quit program")
             {
-                Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
-                input = Console.ReadLine();
-                counter++;
+                if(choice == "ReScale")
+                {
+
+                }
+                if(choice =="Remove current recipe")
+                {
+
+                }
+                if(choice=="Add a new recipe")
+                {
+
+                }
+
             }
-            if (counter == 3)
+            else
             {
-                //ending
-                Console.WriteLine("Thank you and goodbye");
+
             }
-            if (input == "R" || input == "r")
-            {
-                Confirmation(input, recipe);
-            }
-            if(input =="s" || input == "S")
-            {
-                Console.WriteLine("To change the scale of the quantity used to :\n" +
-                   "\t0,5(Half)\ttype 0\n" +
-                   "\t2(double)\ttype 2\n" +
-                   "\t3(triple)\ttype 3\n" +
-                   "\tor type 1 to reset to the original scale");
-                string input2 = Console.ReadLine();
-                if (input2 == "0")
-                {
-                    Display.DisplayRecipe(recipe, 0.5);
-                }
-                else if (input2 == "2")
-                {
-                    Display.DisplayRecipe(recipe, 2);
-                }
-                else if (input2 == "3")
-                {
-                    Display.DisplayRecipe(recipe, 3);
-                }
-                else
-                {
-                    Display.DisplayRecipe(recipe, 1);
-                }
-            }
+
         }
         public static void Confirmation(string input, Recipe recipe)
         {
