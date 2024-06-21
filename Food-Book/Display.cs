@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,22 +52,13 @@ namespace Food_Book
             foreach (var step in recipe.steps)
             {
                 stepTable.AddRow(counter.ToString(), step.instruction.ToString());
+                counter++;
             }
             AnsiConsole.Write(stepTable);
-            Console.ReadKey();
-            Console.Clear();
-            DisplayList();
+            Decisions.Decision(recipe);
         }
         public static void DisplayRecipe(Recipe recipe, double x)
         {
-            //Console.WriteLine($"**************************************************\n" +
-            //    $"Recipe name: {recipe.Name}\n" +
-            //    $"Total calories:           {recipe.TotalCalories}" +
-            //    $"Number of Ingredients:    {recipe.ingediants.Count}\n" +
-            //    $"Number of Steps:          {recipe.steps.Count}\n" +
-            //    "       INGREDIENTS     \n" +
-            //    "-----------------------");
-
             var table = new Table().Title(recipe.Name.ToString());
 
             table.AddColumn(new TableColumn("Description"));
@@ -84,31 +76,24 @@ namespace Food_Book
 
             foreach (var ing in recipe.ingediants)
             {
-                //Console.WriteLine(
-                //    $"Name:                 {ing.name}\n" +
-                //    $"Unit of Measurement:  {ing.UOM}\n" +
-                //    $"Quantity:             {ing.Quantity * x}\n" +
-                //    $"Calories:             {ing.Calories}" +
-                //    $"----");
                 var newQuantity = ing.Quantity * x;
                 ingTable.AddRow("Name", ing.name.ToString());
                 ingTable.AddRow("Unit of Measurement", ing.UOM.ToString());
                 ingTable.AddRow("Quantity", newQuantity.ToString());
                 ingTable.AddRow("Calories", ing.Calories.ToString());
             }
-            //Console.WriteLine("     STEPS   \n" +
-            //                  "--------------");
 
             var stepTable = new Table().Title("Steps");
+            stepTable.AddColumn(new TableColumn("Step"));
             stepTable.AddColumn(new TableColumn("Description"));
+            int counter = 1;
             foreach (var step in recipe.steps)
             {
-                //Console.WriteLine($"Step {step.step}\n" +
-                //    $"{step.instruction}\n" +
-                //    $"--");
-                stepTable.AddRow(step.instruction.ToString());
+                stepTable.AddRow(counter.ToString(), step.instruction.ToString());
+                counter++;
             }
-            AnsiConsole.Write(stepTable); 
+            AnsiConsole.Write(stepTable);
+            Decisions.Decision(recipe);
         }
 
         public static void DisplayList()

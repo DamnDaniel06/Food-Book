@@ -31,7 +31,7 @@ namespace Food_Book
                 do
                 {
                     name = AnsiConsole.Ask<string>("What is the [green]name of the recipe[/]?");
-                    isValid = InputChecker.StringChecker(name);
+                    //isValid = InputChecker.StringChecker(name);
                     counter++;
 
                 } while (isValid == false && counter < 2);
@@ -81,8 +81,8 @@ namespace Food_Book
                 counter = 0;
                 do
                 {
-                    Ingrd = AnsiConsole.Ask<int>("How many [green]steps[/] does this recipe require?");
-                    isValid = InputChecker.IntChecker(Ingrd);
+                    steps = AnsiConsole.Ask<int>("How many [green]steps[/] does this recipe require?");
+                    isValid = InputChecker.IntChecker(steps);
                     counter++;
 
                 } while (isValid == false && counter < 2);
@@ -126,13 +126,13 @@ namespace Food_Book
 
                 Console.WriteLine("Please enter the Name of Recipe");
                 string name = Console.ReadLine();
-                isValid = InputChecker.StringChecker(name);
+                //isValid = InputChecker.StringChecker(name);
 
                 while (isValid == false && counter < 2)
                 {
                     Console.WriteLine("Please Try again to enter the recipe name");
                     name = Console.ReadLine();
-                    isValid = InputChecker.StringChecker(name);
+                    //isValid = InputChecker.StringChecker(name);
                     counter++;
                 }
                 if (isValid == false)
@@ -223,8 +223,8 @@ namespace Food_Book
                 //_____________
                 do
                 {
-                    name = AnsiConsole.Ask<string>("What is the name of Ingredient [green]No {x}[/]?");
-                    isValid = InputChecker.StringChecker(name);
+                    name = AnsiConsole.Ask<string>($"What is the name of Ingredient [green]No {x}[/]?");
+                    //isValid = InputChecker.StringChecker(name);
                     counter++;
 
                 } while (isValid == false && counter < 2);

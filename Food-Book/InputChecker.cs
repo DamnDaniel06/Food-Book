@@ -10,33 +10,33 @@ namespace Food_Book
 {
     internal class InputChecker
     {
-        public static bool StringChecker(string input)
-        {
-            bool isValid = true;
-            if (string.IsNullOrEmpty(input))
-            {
-                isValid = false;
-                throw new ArgumentNullException(nameof(input),"String is null. please try again");
-            }
-            else
-            {
-                try
-                {
-                    foreach (char c in input)
-                    {
-                        if (!char.IsLetter(c))
-                            return false;
-                    }
-                    return true;
-                }
-                catch (FormatException fx)
-                {
-                    Console.WriteLine($"...An Error has occured: {fx.Message}");
-                    isValid = false;
-                }
-            }
-            return isValid;
-        }
+        //public static bool StringChecker(string input)
+        //{
+        //    bool isValid = true;
+        //    if (string.IsNullOrEmpty(input))
+        //    {
+        //        isValid = false;
+        //        throw new ArgumentNullException(nameof(input),"String is null. please try again");
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            foreach (char c in input)
+        //            {
+        //                if (!char.IsLetter(c))
+        //                    return false;
+        //            }
+        //            return true;
+        //        }
+        //        catch (FormatException fx)
+        //        {
+        //            Console.WriteLine($"...An Error has occured: {fx.Message}");
+        //            isValid = false;
+        //        }
+        //    }
+        //    return isValid;
+        //}
         public static bool IntChecker(string input)
         {
             bool isValid = false;

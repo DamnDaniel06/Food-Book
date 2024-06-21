@@ -13,99 +13,109 @@ namespace Food_Book
 
         public static void Decision(Recipe recipe)
         {
-            //Display display = new Display();
-            //Add add = new Add();
-
-            //int counter = 0;
-
-            //Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
-            //string input = Console.ReadLine();
-
-            //while (counter < 2 && (input!="r" || input != "R" || input != "S" || input != "s"))
-            //{
-            //    Console.WriteLine("To Restart the recipe type R or to ReScale the recipe type S");
-            //    input = Console.ReadLine();
-            //    counter++;
-            //}
-            //if (counter == 3)
-            //{
-            //    //ending
-            //    Console.WriteLine("Thank you and goodbye");
-            //}
-            //if (input == "R" || input == "r")
-            //{
-            //    Confirmation(input, recipe);
-            //}
-            //if(input =="s" || input == "S")
-            //{
-            //    Console.WriteLine("To change the scale of the quantity used to :\n" +
-            //       "\t0,5(Half)\ttype 0\n" +
-            //       "\t2(double)\ttype 2\n" +
-            //       "\t3(triple)\ttype 3\n" +
-            //       "\tor type 1 to reset to the original scale");
-            //    string input2 = Console.ReadLine();
-            //    if (input2 == "0")
-            //    {
-            //        Display.DisplayRecipe(recipe, 0.5);
-            //    }
-            //    else if (input2 == "2")
-            //    {
-            //        Display.DisplayRecipe(recipe, 2);
-            //    }
-            //    else if (input2 == "3")
-            //    {
-            //        Display.DisplayRecipe(recipe, 3);
-            //    }
-            //    else
-            //    {
-            //        Display.DisplayRecipe(recipe, 1);
-            //    }
-            //}
 
             // Ask the user what they would like to do with this information
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("What would you like to do?")
                     .PageSize(10)
-                    .AddChoices(new[] { "ReScale","Remove current recipe", "Add a new recipe", "Quit program" }));
+                    .AddChoices(new[] { "ReScale","Remove current recipe", "Add a new recipe", "..." }));
 
-            if(choice != "Quit program")
+            if(choice != "...")
             {
                 if(choice == "ReScale")
                 {
+                    // Ask the user what they would like to do with this information
+                    var input2 = AnsiConsole.Prompt(
+                        new SelectionPrompt<string>()
+                            .Title("What would you like to ReScale?")
+                            .PageSize(10)
+                            .AddChoices(new[] { "Half", "Double", "Triple", "Reset to Original" }));
 
+                    if (input2 == "Half")
+                    {
+                        Display.DisplayRecipe(recipe, 0.5);
+                    }
+                    else if (input2 == "Double")
+                    {
+                        Display.DisplayRecipe(recipe, 2);
+                    }
+                    else if (input2 == "triple")
+                    {
+                        Display.DisplayRecipe(recipe, 3);
+                    }
+                    else
+                    {
+                        Display.DisplayRecipe(recipe, 1);
+                    }
                 }
-                if(choice =="Remove current recipe")
+                if (choice =="Remove current recipe")
                 {
+                    bool conf = Confirmation("Remove the current recipe", recipe);
+                    if (conf == true)
+                    {
+                        Console.Clear();
+                        //remove current recipe
+                        CookBook newBook = new CookBook();
+                        newBook = Convert.Convert_to_object();
+                        List<Recipe> recipes = new List<Recipe>();
+                        recipes = newBook.recipes;
+                        recipes.Remove(recipe);
+                        Convert.Convert_to_json(newBook);
 
+                        //display list without current recipe
+                        Display.DisplayList();
+                    }
+                    else
+                    {
+                        Decision(recipe);
+                    }
                 }
                 if(choice=="Add a new recipe")
                 {
+                    Console.Clear();
+                    //Add new recipe
+                    CookBook book = new CookBook();
+                    book.recipes = new List<Recipe>();
 
+                    bool isWorking = true;
+                    Recipe recip = Add.AddRecipe(ref isWorking);
+                    if (isWorking == false)
+                    {
+                        Display.DisplayEnd();
+                    }
+                    book.recipes.Add(recip);
+                    //Convering the Book to Json
+                    Convert.Convert_to_json(book);
+
+                    Display.DisplayRecipe(recip, 1);
+                    
                 }
 
             }
             else
             {
-
+                Console.Clear();
+                Display.DisplayList();
             }
 
         }
-        public static void Confirmation(string input, Recipe recipe)
+        public static bool Confirmation(string input, Recipe recipe)
         {
+            // Ask the user to confirm
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title($"Are you sure you want to {input}?")
+                    .PageSize(10)
+                    .AddChoices(new[] { "No", "Yes" }));
 
-            Console.WriteLine("Are you sure? type Y for yes");
-            input = Console.ReadLine();
-            if (input == "Y" || input == "y")
+            if (choice == "No")
             {
-                recipe = null;
-                Console.Clear();
-                recipe = Add.AddRecipe();
-                Display.DisplayRecipe(recipe, 1);
+                return false;
             }
             else
             {
-                Decision(recipe);
+                return true;
             }
         }
     }
