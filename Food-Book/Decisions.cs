@@ -56,11 +56,10 @@ namespace Food_Book
                     {
                         Console.Clear();
                         //remove current recipe
-                        CookBook newBook = new CookBook();
-                        newBook = Convert.Convert_to_object();
-                        List<Recipe> recipes = new List<Recipe>();
-                        recipes = newBook.recipes;
+                        CookBook newBook = Convert.Convert_to_object();
+                        List<Recipe> recipes = newBook.recipes;
                         recipes.Remove(recipe);
+                        newBook.recipes = recipes;
                         Convert.Convert_to_json(newBook);
 
                         //display list without current recipe
@@ -89,7 +88,6 @@ namespace Food_Book
                     Convert.Convert_to_json(book);
 
                     Display.DisplayRecipe(recip, 1);
-                    
                 }
 
             }

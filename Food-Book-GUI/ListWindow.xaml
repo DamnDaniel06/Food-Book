@@ -1,0 +1,71 @@
+﻿<Window x:Class="Food_Book_GUI.ListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Food_Book_GUI"
+        mc:Ignorable="d"
+        Title="ListWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--<local:HeaderUserControl Grid.Row="0" />
+        <local:MainSectionUserControl Grid.Row="1" />-->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Filter by" Margin="0,0,10,0"/>
+            <!--Ingredient Food group Calories-->
+            <ComboBox Name="CbFilterby" VerticalAlignment="Bottom" Width="100">
+                <ComboBoxItem IsSelected="True">ingredients</ComboBoxItem>
+                <ComboBoxItem >food group</ComboBoxItem>
+                <ComboBoxItem>Calories</ComboBoxItem>
+            </ComboBox>
+            <!--Must contain & Must not contain-->
+            <ComboBox Name="CbFilterMust" IsEnabled="False" VerticalAlignment="Bottom" Width="100" Margin="10,0,0,0">
+                <ComboBoxItem IsSelected="True">Must contain</ComboBoxItem>
+                <ComboBoxItem>Must not contain</ComboBoxItem>
+            </ComboBox>
+            <!--select food Grop-->
+            <ListBox x:Name="ListFood" IsEnabled="False" Width="100" Margin="10,0,0,0" SelectionMode="Multiple"></ListBox>
+            <!--Min and Max Calories-->
+            <ComboBox Name="CbFilterCal" IsEnabled="False" VerticalAlignment="Bottom" Width="100" Margin="10,0,0,0">
+                <ComboBoxItem IsSelected="True">Maximum</ComboBoxItem>
+                <ComboBoxItem>Minimum</ComboBoxItem>
+            </ComboBox>
+            <!--Ingredient Name and Calories-->
+            <TextBox x:Name="UserInput" IsEnabled="False" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" BorderBrush="Black"/>
+            <!--Search button-->
+            <Button x:Name="Search" Width="70" Margin="90,0,0,0" VerticalAlignment="Center" Content="Search" Click="Search_Click"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ListView x:Name="ListRecipes" Margin="50" HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView x:Name="GridData">
+                        <!-- declare a GridViewColumn for each property -->
+                        <GridViewColumn Header="Name" Width="300"/>
+                        <GridViewColumn Header="Calories" Width="100"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+            
+            <StackPanel x:Name="HiddenStack" HorizontalAlignment="Center" Visibility="Hidden">
+                <Label Visibility="Visible" Width="100" >List is empty</Label>
+                <Label>What would you like to do?</Label>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Back" Content="Go back" Width="100" Margin="20"/>
+                    <Button x:Name="Add" Content="Add new recipe" Width="100" Margin="20"/>
+                    <Button x:Name="End" Content="End program" Width="100" Margin="20"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>
