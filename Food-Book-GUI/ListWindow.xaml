@@ -17,7 +17,7 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Filter by" Margin="0,0,10,0"/>
             <!--Ingredient Food group Calories-->
-            <ComboBox Name="CbFilterby" VerticalAlignment="Bottom" Width="100">
+            <ComboBox Name="CbFilterby" VerticalAlignment="Bottom" Width="100" SelectionChanged="CbFilterby_SelectionChanged">
                 <ComboBoxItem IsSelected="True">ingredients</ComboBoxItem>
                 <ComboBoxItem >food group</ComboBoxItem>
                 <ComboBoxItem>Calories</ComboBoxItem>
@@ -27,10 +27,10 @@
                 <ComboBoxItem IsSelected="True">Must contain</ComboBoxItem>
                 <ComboBoxItem>Must not contain</ComboBoxItem>
             </ComboBox>
-            <!--select food Grop-->
+            <!--select food Group-->
             <ListBox x:Name="ListFood" IsEnabled="False" Width="100" Margin="10,0,0,0" SelectionMode="Multiple"></ListBox>
             <!--Min and Max Calories-->
-            <ComboBox Name="CbFilterCal" IsEnabled="False" VerticalAlignment="Bottom" Width="100" Margin="10,0,0,0">
+            <ComboBox Name="CbFilterMinMax" IsEnabled="False" VerticalAlignment="Bottom" Width="100" Margin="10,0,0,0">
                 <ComboBoxItem IsSelected="True">Maximum</ComboBoxItem>
                 <ComboBoxItem>Minimum</ComboBoxItem>
             </ComboBox>
