@@ -25,7 +25,7 @@ namespace Food_Book_GUI
         {
             ListWindow listWindow = new ListWindow();
             listWindow.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

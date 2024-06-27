@@ -146,8 +146,7 @@ namespace Food_Book_GUI
                     UserInput.IsEnabled = true;
                 }
             }
-            
-            
+
         }
         public IEnumerable<string> choosing = new List<string> { "Ingredients", "Food Group", "Categories" };
     }
