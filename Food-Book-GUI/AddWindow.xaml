@@ -7,6 +7,78 @@
         mc:Ignorable="d"
         Title="AddWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Margin="20" >
+            <Border CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" >
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Width="400" HorizontalAlignment="Left">
+                        <!--name of the recipet-->
+                        <Label Content="Recipe Name" />
+                        <TextBox Name="RecipeName"/>
+
+                        <Label Content="Number of Ingredients"/>
+                        <TextBox x:Name="NoIngre"/>
+
+                        <Label Content="List of Ingredients"/>
+                        <ListBox Height="80"/>
+
+                        <Button x:Name="AddStepsBtn" Content="Add Step" Width="100" />
+
+                        <Label Content="List of Steps"/>
+                        <ListBox Height="80"/>
+
+                        <Button x:Name="AddSteps" Content="Add Steps" Width="100" />
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="AddRecipe" Content="Add Recipe" Margin="50,0,50,0"/>
+                            <Button x:Name="CancelBtn" Content="Cancel Recipe" Margin="50,0,50,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Name="Ingredients" Margin="10,0,10,0" Visibility="Visible" Orientation="Vertical" HorizontalAlignment="Center" Width="300">
+                        <Label Content="Name of Ingredient"/>
+                        <TextBox x:Name="IngreName"/>
+
+                        <Label Content="What Unit of Measurement will you use"/>
+                        <ComboBox x:Name="UOM">
+                            <ComboBoxItem Selector.IsSelected="True">"Milligram (mg)</ComboBoxItem>
+                            <ComboBoxItem>Gram (g)</ComboBoxItem>
+                            <ComboBoxItem>Ounce (oz)</ComboBoxItem>
+                            <ComboBoxItem>Pound (lb)</ComboBoxItem>
+                            <ComboBoxItem>Millilitre (ml)</ComboBoxItem>
+                            <ComboBoxItem>Litre (l)</ComboBoxItem>
+                            <ComboBoxItem>Fluid ounce (fl. oz.)</ComboBoxItem>
+                        </ComboBox>
+
+                        <Label Content="Quantity Used"/>
+                        <TextBox x:Name="Quantity"/>
+
+                        <Label Content="How many calories does it have?"/>
+                        <TextBox x:Name="calories"/>
+
+                        <Label Content="What food group does it belong to ?"/>
+                        <ComboBox x:Name="foodType">
+                            <ComboBoxItem Selector.IsSelected="True">Starch</ComboBoxItem>
+                            <ComboBoxItem>Fruits</ComboBoxItem>
+                            <ComboBoxItem>Vegitables</ComboBoxItem>
+                            <ComboBoxItem>Grains</ComboBoxItem>
+                            <ComboBoxItem>Dairy</ComboBoxItem>
+                            <ComboBoxItem>Protains</ComboBoxItem>
+                            <ComboBoxItem>Fats and Olis</ComboBoxItem>
+                            <ComboBoxItem>Other</ComboBoxItem>
+                        </ComboBox>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,20,0,0">
+                            <Button x:Name="AddIngreBtn" Content="Add Recipe" Margin="70,0,30,0"/>
+                            <Button x:Name="CancelIngBtn" Content="Cancel Recipe" Margin="30,0,30,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="Steps" Visibility="Visible">
+                        <Label Content="Step"/>
+                        <TextBox x:Name="Step" Width="300"/>
+                    </StackPanel>
+                </StackPanel>
+                
+            </Border>
+            
+        </StackPanel>
     </Grid>
 </Window>

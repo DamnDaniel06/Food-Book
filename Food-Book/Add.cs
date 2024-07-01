@@ -291,6 +291,7 @@ namespace Food_Book
                     .PageSize(10)
                     .AddChoices(new[] {
                         "Strach",
+                        "Dairy",
                         "Fruits",
                         "Vegetables",
                         "Grains",
